@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src = "dropdown_menu.js"></script>
     <title>Document</title>
     <style>
         html{
@@ -113,7 +115,65 @@
         }
         #contents{
             min-width: min-content;
+            position: relative;
         }
+        #contents> #dropdown_menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 90px;
+            min-width: 100%;
+            border-bottom:2px solid black ;
+            background-color: white;
+            z-index: 800;
+            display: none;
+        }
+        #dropdown_menu > div { /*menu_item1,2,3,4,*/
+            margin: 0 auto;
+            padding-top: 10px;
+            width: 557px;
+            height: 70px;
+            position: absolute;
+            top :0;
+            left: 595px;
+            margin-left: -579px;
+            z-index: -100;
+            padding-left: 300px;
+            padding-right: 300px;
+            background-color: white;
+        }
+        #dropdown_menu > div >div >p>a {
+            color: black;
+        }
+        #menu_item1 > #intro_items{
+            width: 100px;
+            float: left;
+            padding-left: 20px;
+            display: none;
+        }
+        #menu_item2 > #business_items{
+            width: 100px;
+            float: left;
+            padding-left: 120px;
+            display: none;
+        }
+        #menu_item3 > #shop_items{
+            width: 250px;
+            float: left;
+            padding-left: 230px;
+            display: none;
+        }
+        #shop_items > p {
+            float: left;
+            margin-right: 20px;
+        }
+        #menu_item4 > #cs_items{
+            width: 100px;
+            float: left;
+            padding-left: 478px;
+            display: none;
+        }
+        
         #main_contents{
             width: 1190px;
             height: 750px;
@@ -265,17 +325,50 @@
             </div>
             <div id="main_gnb">
                 <ul>
-                    <li><a href="#">기업소개</a></li>
-                    <li><a href="#">사업소개</a></li>
-                    <li><a href="#">BEST</a></li>
-                    <li><a href="#">SALE</a></li>
-                    <li><a href="#">SHOP</a></li>
-                    <li><a href="#">고객지원</a></li>
+                    <li><a class="intro" href="#">기업소개</a></li>
+                    <li><a class="business" href="#">사업소개</a></li>
+                    <li><a class="shop" href="#">BEST</a></li>
+                    <li><a class="shop" href="#">SALE</a></li>
+                    <li><a class="shop" href="#">SHOP</a></li>
+                    <li><a class="cs" href="#">고객지원</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div id = "contents">
+        <div id = "dropdown_menu">
+            <div id = menu_item1>
+                <div id ="intro_items">
+                    <p><a href="#"> 경영철학 </a></p>
+                    <p><a href="#"> 핵심가치 </a></p>
+                    <p><a href="#"> 비&nbsp&nbsp전 </a></p>
+                </div>
+            </div>
+            <div id = menu_item2>
+                <div id = "business_items">
+                    <p><a href="#"> 본&nbsp&nbsp사 </a></p>
+                    <p><a href="#"> 공&nbsp&nbsp장 </a></p>
+                    <p><a href="#"> 연 구 소 </a></p>
+                </div>
+            </div>
+            <div id = menu_item3>
+                <div id = "shop_items">
+                    <p><a href="#"> SALE </a></p>
+                    <p><a href="#"> SHOES </a></p>
+                    <p><a href="#"> CLOTHES </a></p>
+                    <p><a href="#"> PANTS </a></p>
+                    <p><a href="#"> OUTER </a></p>
+                    <p><a href="#"> BEST </a></p>
+                </div>
+            </div>
+            <div id = menu_item4>
+                <div id = cs_items>
+                    <p><a href="#"> 공지사항 </a></p>
+                    <p><a href="#"> Q n A </a></p>
+                    <p><a href="#"> 게 시 판 </a></p>
+                </div>
+            </div>
+        </div>
         <div id = "main_contents">
             <div id = "contents_left">
                 <div id = Sign_in>
