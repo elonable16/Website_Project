@@ -185,79 +185,129 @@
             padding-left: 474px;
             display: none;
         }
-        
-        #contents > #main_event_banner{
-            width: 100%;
-            height: 400px;
-            position: relative;
-        }
-        #main_event_banner > img:nth-child(1){
-            position: absolute;
-            top : 45%;
-            left: 0;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 5px;
-        }
-        #main_event_banner > img:nth-last-child(1){
-            position: absolute;
-            top : 45%;
-            right: 0;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 5px;
-        }
         #main_contents{
             min-width: 1140px;
             max-width: 1520px;
-            height: max-content;
+            height: 1800px;
             margin: 0 auto;
             border: 1px solid black ;
             /* position: relative; */
             vertical-align: middle;
         }
-        #main_contents>#shop_contents{
-            width: 95%;
-            height: 1800px;
-            border: 1px solid black;
-            margin : 0 auto;
-            margin-top: 80px;
-            padding-left: 2%;
-            padding-bottom: 100px;
+        #main_contents > #intro_contents_left{
+            width: 15%;
+            height: 100%; 
+            /* border: 1px solid black; */
+            float: left;
+            margin: 20px;
+        }
+        #intro_contents_left > #left_nav{
+            width: 100%;
+            height: 800px;
+            /* border: 1px solid black; */
+        }
+        #intro_contents_left>#left_nav> ul {
             overflow: hidden;
         }
-        #shop_contents>#shop_item{
+        #intro_contents_left>#left_nav>ul>li{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #888888;
+            padding-left: 20px;
+            vertical-align: text-bottom;
+            font-size: 13px;
+        }
+        #intro_contents_left>#left_nav>ul>li:first-child{
+            border-bottom: 2px solid #333333;
+            font-size: 16px;
+        }
+        #intro_contents_left>#left_nav>ul>li>a{
+            letter-spacing: 2px;
+            line-height:40px;
+        }
+        #main_contents > #intro_contents_right{
+            width:78%;
+            height: 100%;
+            float: right;
+            /* border: 1px solid black;  */
+            margin: 20px;
+            margin-left: 0px;
+        }
+        #main_contents > #intro_contents_right> #shop_title{
+            margin-top:10px ;
+            margin-bottom:20px ;
+        }
+        #main_contents > #intro_contents_right> #shop_title>p{
+            display: inline;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid black;
+            padding: 8px 20px;
+        }
+        #main_contents>#shop_main_item>img{
+            width: 100%;
+            height: 230px;
+        }
+        #intro_contents_right>#shop_item_list{
+            width: 100%;
+        }
+        #intro_contents_right>#shop_item_list>#shop_contents{
+            width: 100%;
+            height: 1150px;
+            /* border: 1px solid black; */
+            margin : 0 auto;
+            margin-top: 20px; 
+            overflow: hidden;
+        }
+        #intro_contents_right>#shop_item_list>#shop_contents>#shop_contents_itemview{
+            width: 33%;
+            height: 350px;
+            /* border: 1px solid black; */
+            margin: 20px 0px;
             float: left;
-            width: 300px;
-            height: 450px;
-            margin: 20px 15px;
-            border:1px solid black;
+        }
+        #intro_contents_right>#shop_item_list>#shop_contents>#shop_contents_itemview > #shop_item{
+            width: 230px;
+            height: 330px;
+            margin: 0 auto;
+            /* border:1px solid black; */
             text-align: center;
         }
-        #shop_item > a {
+        #shop_contents_itemview >#shop_item > a {
             display: block;
         }
-        #shop_item > a > #item_info{
+        #shop_contents_itemview >#shop_item > a > #item_info{
             width: 100%;
-            height: 120px;
+            height: 100px;
             overflow: hidden;
-            padding-top: 20px;
+            padding-top: 5px;
         }
-        #item_info > p.product_name{
+        #shop_contents_itemview >#shop_item > a >#item_info > p.product_name{
             font-size : 15px;
             color: #333333;
-            margin: 10px 0px;
+            margin: 3px 0px;
             display: block;
         }
-        #item_info > p.product_price{
+        #shop_contents_itemview >#shop_item > a >#item_info > p.product_price{
             font-size : 18px;
             color:black;
             margin: 3px 0px;
             display: block;
         }
-        #item_info > p.product_review{
+        #shop_contents_itemview >#shop_item > a >#item_info > p.product_review{
             font-size : 20px;
             color: darkred;
             display: block;
         }
+        #intro_contents_right>#shop_item_list>#shop_item_pagenum{
+            text-align: right;
+            padding-right: 7%;
+            margin-top: 20px;
+        }
+        #intro_contents_right>#shop_item_list>#shop_item_pagenum>span{
+            margin : 0px 5px;
+        }
+        
 
         /**********************************footer*************************************/
         #footer {
@@ -376,127 +426,148 @@
                 </div>
             </div>
         </div>
-        <div id = main_event_banner>
-            <img class = "banner_left" src="./img/img_left.png" onclick="banner_change_left()">
-            <img class="main_banner" src="./img/banner1.jpeg" width="100%" height="100%">
-            <img class = "banner_right" src="./img/img_right.png" onclick="banner_change_right()">
-        </div>
         <div id = "main_contents">
-            <div id = "shop_contents">
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
+            <div id = "intro_contents_left">
+                <div id = "left_nav">
+                    <ul>
+                        <li><a>Sale</a></li>
+                        <li><a>shoes</a></li>
+                        <li><a>clothes</a></li>
+                        <li><a>pants</a></li>
+                        <li><a>outer</a></li>
+                        <li><a>BEST</a></li>
+                    </ul>
                 </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                <div id = "shop_item">
-                    <a href="#">
-                       <img src="http://placeimg.com/300/300/clothes" alt="">
-                       <div id="item_info">
-                            <p class ="product_name">상품명</p>
-                            <p class ="product_price">가격</p>
-                            <p class ="product_review">★★★★☆</p>
-                        </div>
-                    </a>
-                </div>
-                
-                
-                
             </div>
+            <div id = "intro_contents_right">
+                <div id="shop_title">
+                    <p>제목</p>
+                </div>
+                <div id = "shop_main_item">
+                    <a href ="#"><img src="http://placeimg.com/1140/230/clothes" width="100%" alt=""></a>
+                </div>
+                <div id="shop_item_list">
+                    <div id = "shop_contents">
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id = "shop_contents_itemview">
+                            <div id = "shop_item">
+                                <a href="#">
+                                <img src="http://placeimg.com/230/230/clothes" alt="">
+                                <div id="item_info">
+                                        <p class ="product_name">상품명</p>
+                                        <p class ="product_price">가격</p>
+                                        <p class ="product_review">★★★★☆</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id= shop_item_pagenum>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>>></span>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
     <div id = "footer">
