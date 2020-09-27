@@ -182,8 +182,7 @@
         }
 /* ///////////////////////////////////////////////////////// */
         #main_contents{
-            min-width: 1140px;
-            max-width: 1520px;
+            width: 100%;
             padding-bottom: 200px;
             margin: 0 auto;
             overflow: visible;
@@ -191,106 +190,95 @@
             position: relative;
         }
         #main_contents>#contents_top{
-            overflow: hidden;
-        }
-        #main_contents >#contents_top> #contents_left{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            float: left;
-            /* border: 1px solid black; */
-        }
-        #main_contents >#contents_top> #contents_left>#product_image{
-            float: right;
-            /* border: 1px solid black; */
-        }
-        #contents_left>#product_image>#product_image_item{
-            /* border: 1px solid black; */
-            width: 300px;
-            height: 300px;
+            min-width: 1140px;
+            max-width: 1520px;
             margin: 0 auto;
-        }
-        #contents_left>#product_image>#product_image_item>a>img{
-            width: 300px;
-            height: 300px;
-        }
-        #contents_left>#product_image>#product_image_select{
-            /* border: 1px solid black; */
-            width: max-content;
-            height: 30px;
-            margin: 0 auto;
-            vertical-align: middle;
-        }
-        #main_contents >#contents_top> #contents_right{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            float: right;
-            /* border: 1px solid black; */
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents{
-            /* border: 1px solid black; */
-            height: 330px;
-            margin: 0 auto;
+            height: 100px;
             position: relative;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p{
-            margin-top: 10px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_tag{
-            /* border: 1px solid black; */
-            color: #555555;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_name{
-            /* border: 1px solid black; */
-            font-size: 20px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_review{
-            /* border: 1px solid black; */
-            color: darkred;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_price{
-            /* border: 1px solid black; */
-            font-size: 25px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>select.prod_cnt{
-            /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 4px 20px;
-            margin-top: 30px;
-            vertical-align: bottom;
+        #main_contents>#contents_top>p{
+            display: inline;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid black;
+            padding: 8px 20px;
+            line-height: 24px;
             position: absolute;
-            bottom: 0;
+            bottom: 5px;
+            left: 10px;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>input.prod_cart_btn{
-            width: 350px;
+        #main_contents>#contents_middle{
+            overflow: hidden;
+            background-color:rgba(139, 0, 0, 0.384);
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            padding: 10px 0;
+        }
+        #main_contents>#contents_middle>#middle_box{
+            min-width: 1140px;
+            max-width: 1520px;
             /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 3px 10px;
-            background-color: black;
-            color: white;
-            position: absolute;
-            bottom: 0;
-            left: 80px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+        #main_contents>#contents_middle>#middle_box>p.middle_subject{
+            font-size: 30px;
+            margin: 10px;
+        }
+        #main_contents>#contents_middle>#middle_box>p.middle_date{
+            float: right;
+            margin: 10px;
         }
         #main_contents>#contents_bottom{
-            width: 1200px;
+            min-width: 1140px;
+            max-width: 1520px;
             margin: 0 auto;
+            /* height: 100px; */
             /* border: 1px solid black; */
-            border-top: 3px solid #888888;
         }
-        #main_contents>#contents_bottom>#product_detail_info{
+        #main_contents>#contents_bottom>#bottom_context{
+            width: 100%;
+            margin: 20px;
+            margin-top: 100px;
+            /* overflow: auto;s\ */
+        }
+        #main_contents>#btn_box{
+            min-width: 1140px;
+            max-width: 1520px;
+            /* border: 1px solid black; */
             margin: 0 auto;
-            width: 950px;
-            /* border: 1px solid black; */
-            margin-top: 30px;
-            margin-bottom: 30px;
-            overflow: visible;
+            overflow: auto;
+            margin-top: 50px;
         }
+        #main_contents>#btn_box>#btn_list{
+            float: left;
+            margin-left: -62px;
+            padding-left: 50%;
+            width: fit-content;
+            /* border: 1px solid black; */
+        }
+        #main_contents>#btn_box>#btn_list>p>a{
+            padding: 10px 50px;
+            background-color: black;
+            color: white;
+            float: left;
+        }
+        #main_contents>#btn_box>#btn_update{
+            /* border: 1px solid black; */
+            float: right;
+            width: fit-content;
+        }
+        #main_contents>#btn_box>#btn_update>p{
+            float: left;
+            margin: 0 10px;
+        }
+        #main_contents>#btn_box>#btn_update>p>a{
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            float: left;
+        }
+        
         /* ///////////////////////////////////////////// */
         #footer {
             min-width: 100%;
@@ -408,68 +396,30 @@
                 </div>
             </div>
         </div>
+        </div>
         <div id = "main_contents">
             <div id="contents_top">
-                <div id = "contents_left">
-                    <div id = "product_image">
-                        <div id = "product_image_item">
-                            <a href=""><img src="http://placeimg.com/230/230/clothes" alt=""></a>
-                        </div>
-                        <div id = "product_image_select">
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div id = "contents_right">
-                    <div id = "product_contents">
-                        <form action="">
-                            <p class="prod_tag">품목</p>
-                            <p class="prod_name">상품명</p>
-                            <p class="prod_review">별점</p>
-                            <p class="prod_price">가격</p>
-                            <select name="prod_cnt" class="prod_cnt">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <input type="submit" value="ADD TO CART" class="prod_cart_btn">
-                        </form>
-                    </div>
+                <p>공지사항</p>
+            </div>
+            <div id="contents_middle">
+                <div id = "middle_box">
+                    <p class="middle_subject">공지사항입니다.</p>
+                    <p class="middle_date">2021-01-01</p>
                 </div>
             </div>
             <div id = "contents_bottom">
-                <div id = "product_detail_info">
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
+                <div id = "bottom_context">
+                    
+                    <p>회사소개의 여러 내용 내용</p>
+                </div>
+            </div>
+            <div id ="btn_box">
+                <div id = "btn_list">
+                    <p><a href="#">목록</a></p>
+                </div>
+                <div id = "btn_update">
+                    <p><a href="#">수정</a></p>
+                    <p><a href="#">삭제</a></p>
                 </div>
             </div>
         </div>

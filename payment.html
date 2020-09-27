@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Kufam:wght@600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src = "dropdown_menu.js"></script>
+    <title>Document</title>
+    <style>
+        html{
+            position: relative;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            min-height: 100%;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Do Hyeon', sans-serif;
+            /* font-family: 'Kufam', cursive; */
+        }
+        li{list-style: none;}
+        a{text-decoration: none;}
+        image{border: none;}
+        #header{
+            border-bottom: 1px solid black ;
+            min-width:min-content;
+            margin-bottom: -2px;
+            position: sticky;
+            left: 0;
+            top: 0;
+            background-color: white;
+            z-index: 9999;
+        }
+        #header >#header_deco{
+            height: 30px;
+            text-align: center;
+            color: white;
+            background-color: darkred;
+        }
+        #header_deco > p{
+            padding-top: 5px;
+        }
+        #main_header{
+            padding-top: 10px;
+            min-width: 1140px;
+            max-width: 1520px;
+            height: 100px;
+            margin: 0 auto;
+            /* border: 1px solid black ; */
+            position: relative;
+        }
+        #main_header > #header_title{
+            max-width: 1520px;
+            text-align: center;
+            font-size: 40px;
+        }
+        #header_title > p > a{
+            color : black;
+        }
+        #main_header > #go_home{
+            position:absolute;
+            top: 10px;
+            left: 10px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            /* border : 1px solid black; */
+            align-content: center;
+        }
+        #main_header > #person_nav{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        #person_nav > ul{
+            overflow: hidden;
+        }
+        #person_nav > ul > li{
+            float: left;
+        }
+        #person_nav > ul > li > a{
+            padding: 3px 10px ;
+            display: block;
+            /* border: 2px solid black; */
+            font-size: 15px;
+            text-align: center;
+        }
+        #main_header > #main_gnb{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -269px;
+        }
+        #main_gnb > ul{
+            overflow: hidden;
+        }
+        #main_gnb > ul > li{
+            float: left;
+        }
+        #main_gnb > ul > li > a{
+            color: black;
+            margin: 0 20px;
+            padding: 5px 5px;
+            display: block;
+            /* border: 2px solid black; */
+            text-align: center;
+            font-size: 15px;
+        }
+        #main_gnb > ul > li > a:hover{
+            padding-bottom: 2px;
+            border-bottom: 3px solid black;
+        }
+        #contents{
+            min-width: min-content;
+            position: relative;
+        }
+        #contents> #dropdown_menu {
+            position: fixed;
+            top: 141px;
+            left: 0;
+            height: 90px;
+            min-width: 100%;
+            border-bottom:2px solid black ;
+            background-color: white;
+            z-index: 800;
+            display: none;
+        }
+        #dropdown_menu > div { /*menu_item1,2,3,4,*/
+            margin: 0 auto;
+            padding-top: 10px;
+            width: 557px;
+            height: 70px;
+            position: absolute;
+            top :0;
+            left: 50%;
+            margin-left: -578px;
+            z-index: -100;
+            padding-left: 300px;
+            padding-right: 300px;
+            background-color: white;
+        }
+        #dropdown_menu > div >div >p>a {
+            font-size: 13px;
+            color: black;
+        }
+        #menu_item1 > #intro_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 34px;
+            display: none;
+        }
+        #menu_item2 > #business_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 130px;
+            display: none;
+        }
+        #menu_item3 > #shop_items{
+            padding-top: 5px;
+            width: 250px;
+            float: left;
+            padding-left: 225px;
+            display: none;
+        }
+        #shop_items > p {
+            float: left;
+            margin-right: 20px;
+        }
+        #menu_item4 > #cs_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 474px;
+            display: none;
+        }
+/* ///////////////////////////////////////////////////////// */
+        #main_contents{
+            min-width: 1140px;
+            max-width: 1520px;
+            /* height: 1500px; */
+            overflow:auto;
+            margin: 0 auto;
+            /* border: 1px solid black ; */
+            position: relative;
+            margin-bottom: 200px;
+        }
+        #main_contents> #payment_contents{
+            /* border : 1px solid black; */
+            width: 90%;
+            padding-top: 50px;
+            margin: 0 auto;
+        }
+        #main_contents> #payment_contents> #payment_title{
+            /* border : 1px solid black; */
+            width: 100%;
+        }
+        #main_contents> #payment_contents> #payment_title>p{
+            font-size: 50px;
+            color: darkred;
+            text-align: center;
+        }
+        div.payment_title_txt{
+            width: 100%;
+            height: 30px;
+            border-bottom: 3px solid #444444 ;
+        }
+        div.payment_title_txt>div{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 25px;
+        }
+        #main_contents> #payment_contents>form> #payment_cart{
+            /* border : 1px solid black; */
+            margin-top: 50px;
+            border-bottom: 3px solid #444444 ;  
+        }
+        #payment_contents> form>#payment_cart>#payment_contents_box{
+            width: 90%;
+            margin: 0 auto;
+        }
+        #payment_contents> form>#payment_cart>#payment_contents_box>div.payment_cart_table{
+            width: 100%;
+            margin: 0 auto;
+            margin: 20px 0;
+            overflow: auto;
+        }
+        #payment_contents> form>#payment_cart>#payment_contents_box>div.payment_cart_table>table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        tr.table_cart_header{
+            height: 30px;
+            text-align: center;
+            letter-spacing: 10px;
+        }
+        tr.table_cart_header>td.table_cart_contents1{
+            width: 70px;
+            border-bottom: 2px solid black ;  
+        }
+        tr.table_cart_header>td.table_cart_contents2{
+            width: 110px;
+            border-bottom: 2px solid black ;  
+        }
+        tr.table_cart_header>td.table_cart_contents3{
+            width: 70%;
+            border-bottom: 2px solid black ;  
+        }
+        tr.table_cart_header>td.table_cart_contents4{
+            width: 100px;
+            border-bottom: 2px solid black ;  
+        }
+        tr.table_cart_header>td.table_cart_contents5{
+            border-bottom: 2px solid black ;  
+        }
+        tr.table_cart_body_contents{
+            height: 30px;
+            text-align: center;
+        }
+        tr.table_cart_body_contents>td.table_cart_contents1{
+            width: 70px;
+            border-bottom: 1px solid #888888 ;  
+        }
+        tr.table_cart_body_contents>td.table_cart_contents2{
+            width: 110px;
+            border-bottom: 1px solid #888888 ; 
+            padding-top:5px;
+        }
+        tr.table_cart_body_contents>td.table_cart_contents3{
+            width: 70%;
+            border-bottom: 1px solid #888888 ; 
+        }
+        tr.table_cart_body_contents>td.table_cart_contents4{
+            width: 100px;
+            border-bottom: 1px solid #888888 ; 
+        }
+        tr.table_cart_body_contents>td.table_cart_contents5{
+            border-bottom: 1px solid #888888 ; 
+        }
+        tr.table_cart_total{
+            height: 40px;
+            text-align: center;
+        }
+        tr.table_cart_total>td.table_cart_content_big{
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            height: 30px;
+            letter-spacing: 30px;
+        }
+        tr.table_cart_total>td.table_cart_contents4{
+            width: 100px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+        tr.table_cart_total>td.table_cart_contents5{
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+        }
+/* ///////////////////////////////////////////////////////////////////// */
+        #main_contents>#payment_contents> form>#payment_receiver_info{
+            /* border : 1px solid black; */
+            margin-top: 30px;
+            border-bottom: 3px solid #444444 ;
+        }
+        #payment_contents>form>#payment_receiver_info>#payment_contents_box{
+            margin: 0 auto;
+            width: 90%;
+        }
+        #payment_receiver_info>#payment_contents_box>div.payment_table>table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+        tr.table_rows1 > td.table_col1{
+            line-height: 30px;
+            width: 150px;
+            border-bottom: 1px solid #777777;
+            padding: 10px 0;
+        }
+        tr.table_rows1 > td.table_col2{
+            line-height: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid #777777;
+        }
+        tr.table_rows2 > td.table_col1{
+            line-height: 30px;
+            width: 150px;
+            border-bottom: 1px solid #777777;
+            padding: 10px 0;
+        }
+        tr.table_rows2 > td.table_col2{
+            line-height: 30px;
+            padding: 10px 0;
+            border-bottom: 1px solid #777777;
+        }
+        tr.table_rows3 > td.table_col1{
+            line-height: 30px;
+            width: 150px;
+            padding: 10px 0;
+        }
+        tr.table_rows3 > td.table_col2{
+            line-height: 30px;
+            padding: 10px 0;
+        }
+        td.table_col2>p>input{ /*input tag 높이, 넓이는 인라인으로 결정*/
+            height: 25px;
+        }
+        #main_contents>#payment_contents>form> #payment_method{
+            /* border : 1px solid black; */
+            margin-top: 50px;
+            border-bottom: 3px solid #444444 ;
+        }
+        #payment_contents>form>#payment_method>#payment_contents_box{
+            margin: 0 auto;
+            width: 90%;
+        }
+        #payment_method>#payment_contents_box>div.payment_table{
+            width: fit-content;
+            margin: 0 auto;
+            overflow: auto;
+        }
+        #payment_contents_box>div.payment_table>input.how_pay{
+            display: none;
+        }
+        #payment_contents_box>div.payment_table>button{
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            margin: 20px 50px;
+        }
+        #main_contents>#payment_contents>form>#payment_ok{
+            /* border : 1px solid black; */
+            margin-top: 30px;
+        }
+        #payment_ok>div{
+            width: fit-content;
+            margin: 0 auto;
+        }
+        #payment_ok>div>input{
+            padding: 10px 30px;
+            font-size: 30px;
+            color: white;
+            background-color: black;
+            border: none;
+            margin-top: 30px;
+        } /* 최종 결정 버튼*/
+
+        /* ///////////////////////////////////////////// */
+        #footer {
+            min-width: 100%;
+            position: absolute;
+            background-color: black;
+            left: 0;
+            bottom:0;
+            /* border: 1px solid black; */
+        }
+        #footer > #main_footer{
+            min-width: 1140px;
+            max-width: 1520px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            /* border: 1px solid black ; */
+            position: relative;
+        }
+        #main_footer > #sub_info{
+            width: 500px;
+            height: 100px;
+            margin-left: 20px;
+        }
+        #sub_info > #sub_link{
+            margin-top: 20px;
+        }
+        #sub_info > #sub_link > ul{
+            overflow: hidden;
+        }
+        #sub_link > ul > li{
+            float: left;
+        }
+        #sub_link > ul > li > a {
+            padding :0 20px ;
+            display: inline;
+            color: white;
+        }
+        #sub_link > ul > li:nth-child(2) > a{
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+        }
+        p.subinfo_text{
+            margin-left: 20px;
+        }
+        #main_footer > #footer_title{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 40px;
+        }
+    </style>
+    <script>
+        function chk_pay(num){
+            $('input:radio[name=how_pay]').attr("checked",false);
+            $('button.pay').css({'backgroundColor':'black',color:"white"});
+            switch(num){
+                case 1: $('input:radio[name=how_pay]:input[value=card]').attr("checked",true);
+                        $('button.card_btn').css({"backgroundColor":"#dddddd",color:"black"});
+                    break;
+                case 2: $('input:radio[name=how_pay]:input[value=deposit]').attr("checked",true);
+                        $('button.depo_btn').css({"backgroundColor":"#dddddd",color:"black"});
+                    break;
+                case 3: $('input:radio[name=how_pay]:input[value=phone]').attr("checked",true);
+                        $('button.pho_btn').css({"backgroundColor":"#dddddd",color:"black"});
+                    break;
+                case 4: $('input:radio[name=how_pay]:input[value=b_transfer]').attr("checked",true);
+                        $('button.trans_btn').css({"backgroundColor":"#dddddd",color:"black"});
+                    break;
+                default: break; 
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id = "header">
+        <div id = header_deco>
+            <p>Welcome to website</p>
+        </div>
+        <div id = "main_header">
+            <div id = "header_title">
+                <p><a href="#">ElocuenTe</a></p>
+            </div>
+            <div id = "go_home">
+                <a href="#"><img src="#" alt="">home</a>
+            </div>
+            <div id = "person_nav">
+                <ul>
+                    <li><a href="#">Sign in</a></li>
+                    <li><a href="#">My page</a></li>
+                </ul>
+            </div>
+            <div id="main_gnb">
+                <ul>
+                    <li><a class="intro" href="#">기업소개</a></li>
+                    <li><a class="business" href="#">사업소개</a></li>
+                    <li><a class="shop" href="#">BEST</a></li>
+                    <li><a class="shop" href="#">SALE</a></li>
+                    <li><a class="shop" href="#">SHOP</a></li>
+                    <li><a class="cs" href="#">고객지원</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id = "contents">
+        <div id = "dropdown_menu">
+            <div id = menu_item1>
+                <div id ="intro_items">
+                    <p><a href="#"> 경영철학 </a></p>
+                    <p><a href="#"> 핵심가치 </a></p>
+                    <p><a href="#"> 비&nbsp&nbsp전 </a></p>
+                </div>
+            </div>
+            <div id = menu_item2>
+                <div id = "business_items">
+                    <p><a href="#"> 본&nbsp&nbsp사 </a></p>
+                    <p><a href="#"> 공&nbsp&nbsp장 </a></p>
+                    <p><a href="#"> 연 구 소 </a></p>
+                </div>
+            </div>
+            <div id = menu_item3>
+                <div id = "shop_items">
+                    <p><a href="#"> SALE </a></p>
+                    <p><a href="#"> SHOES </a></p>
+                    <p><a href="#"> CLOTHES </a></p>
+                    <p><a href="#"> PANTS </a></p>
+                    <p><a href="#"> OUTER </a></p>
+                    <p><a href="#"> BEST </a></p>
+                </div>
+            </div>
+            <div id = menu_item4>
+                <div id = cs_items>
+                    <p><a href="#"> 공지사항 </a></p>
+                    <p><a href="#"> Q n A </a></p>
+                    <p><a href="#"> 게 시 판 </a></p>
+                </div>
+            </div>
+        </div>
+        <div id = "main_contents">
+            <div id = "payment_contents">
+                <div id = "payment_title">
+                    <p>결제하기</p>
+                </div>
+                
+                <form action="">
+                    <div id = "payment_receiver_info">
+                        <div class = "payment_title_txt">
+                            <div><span>받는 분 정보</span></div>
+                        </div>
+                        
+                        <div id = "payment_contents_box">
+                            <div class = "payment_table" >
+                                <table>
+                                    <tr class="table_rows1">
+                                        <td class="table_col1">
+                                            <p>이름</p>
+                                            <p>전화번호</p>
+                                            <p>주소</p>
+                                        </td>
+                                        <td class="table_col2">
+                                            <p><input type="text" name = "rc_name" style="width: 85px;"></p>
+                                            <p>
+                                                <input type="text" name = "rc_phone" maxlength="3" style="width: 30px;">
+                                                -<input type="text" name = "rc_phone2" maxlength="4"style="width: 40px;">
+                                                -<input type="text" name = "rc_phone3"maxlength="4"style="width: 40px;">
+                                            </p>
+                                            <p><input type="text" name = "rc_addr" style="width: 400px;"></p>
+                                        </td>
+                                    </tr>
+                                    <tr class="table_rows2">
+                                        <td class="table_col1">
+                                            <p>택배배송 요청사항</p>
+                                        </td>
+                                        <td class="table_col2">
+                                            <p><input type="text" name = "rc_cmt" style="width: 400px;"></p>
+                                        </td>
+                                    </tr>
+                                    <tr class="table_rows3">
+                                        <td class="table_col1">
+                                            <p>주문자명</p>
+                                            <p>주문자 이메일</p>
+                                        </td>
+                                        <td class="table_col2">
+                                            <p><input type="text" name = "s_name" style="width: 85px;"></p>
+                                            <p><input type="text" name = "s_email" style="width: 300px;"></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div id = "payment_cart">
+                        <div class = "payment_title_txt">
+                            <div><span>주문상품</span></div>
+                        </div>
+                        <div id = "payment_contents_box">
+                            <div class = "payment_cart_table" >
+                                <table>
+                                    <tr class = "table_cart_header">
+                                        <td class = "table_cart_contents1">번호</td>
+                                        <td class = "table_cart_contents2">이미지</td>
+                                        <td class = "table_cart_contents3">제품명</td>
+                                        <td class = "table_cart_contents4">수량</td>
+                                        <td class = "table_cart_contents5">가격</td>
+                                    </tr>
+                                    <tr class = "table_cart_body_contents">
+                                        <td class ="table_cart_contents1">1</td>
+                                        <td class ="table_cart_contents2"><img src="http://placeimg.com/50/50/clothes"></td>
+                                        <td class ="table_cart_contents3">1</td>
+                                        <td class ="table_cart_contents4">1</td>
+                                        <td class ="table_cart_contents5">1</td>
+                                    </tr>
+                                    <tr class = "table_cart_body_contents">
+                                        <td class ="table_cart_contents1">1</td>
+                                        <td class ="table_cart_contents2"><img src="http://placeimg.com/50/50/clothes"></td>
+                                        <td class ="table_cart_contents3">1</td>
+                                        <td class ="table_cart_contents4">1</td>
+                                        <td class ="table_cart_contents5">1</td>
+                                    </tr>
+                                    
+                                    <tr class="table_cart_total">
+                                        <td colspan="3" class="table_cart_content_big">총계</td>
+                                        <td class ="table_cart_contents4">4</td>
+                                        <td class ="table_cart_contents5">000000</td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id = "payment_method">
+                        <div class = "payment_title_txt">
+                            <div><span>결제 수단</span></div>
+                        </div>
+                        <div id = "payment_contents_box">
+                            <div class = "payment_table" >
+                                <input class="how_pay" type="radio" name="how_pay" value="card">
+                                <input class="how_pay" type="radio" name="how_pay" value="deposit">
+                                <input class="how_pay" type="radio" name="how_pay" value="phone">
+                                <input class="how_pay" type="radio" name="how_pay" value="b_transfer">
+                                <button class="card_btn pay" onclick = chk_pay(1)>신용카드</button>
+                                <button class="depo_btn pay" onclick = chk_pay(2)>무통장 입금</button>
+                                <button class="pho_btn pay" onclick = chk_pay(3)>휴대폰</button>
+                                <button class="trans_btn pay" onclick = chk_pay(4)>실시간 계좌이체</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id = payment_ok>
+                        <div>
+                            <input type="submit" value="결제하기">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id = "footer">
+        <div id = "main_footer">
+            <div id="sub_info">
+                <div id="sub_link">
+                    <ul>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">저작권 안내</a></li>
+                        <li><a href="#">이용약관</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="subinfo_text">고객센터 : 041-000-0000</p>
+                </div>
+                <div>
+                    <p class="subinfo_text"> © 2020 elon All Rights Reserved</p>
+                </div>
+            </div>
+            <div id="footer_title">
+                <p>ElocuenTe</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

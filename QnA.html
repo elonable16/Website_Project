@@ -182,8 +182,7 @@
         }
 /* ///////////////////////////////////////////////////////// */
         #main_contents{
-            min-width: 1140px;
-            max-width: 1520px;
+            width: 100%;
             padding-bottom: 200px;
             margin: 0 auto;
             overflow: visible;
@@ -191,106 +190,134 @@
             position: relative;
         }
         #main_contents>#contents_top{
-            overflow: hidden;
-        }
-        #main_contents >#contents_top> #contents_left{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            float: left;
-            /* border: 1px solid black; */
-        }
-        #main_contents >#contents_top> #contents_left>#product_image{
-            float: right;
-            /* border: 1px solid black; */
-        }
-        #contents_left>#product_image>#product_image_item{
-            /* border: 1px solid black; */
-            width: 300px;
-            height: 300px;
+            min-width: 1140px;
+            max-width: 1520px;
             margin: 0 auto;
-        }
-        #contents_left>#product_image>#product_image_item>a>img{
-            width: 300px;
-            height: 300px;
-        }
-        #contents_left>#product_image>#product_image_select{
-            /* border: 1px solid black; */
-            width: max-content;
-            height: 30px;
-            margin: 0 auto;
-            vertical-align: middle;
-        }
-        #main_contents >#contents_top> #contents_right{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            float: right;
-            /* border: 1px solid black; */
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents{
-            /* border: 1px solid black; */
-            height: 330px;
-            margin: 0 auto;
+            height: 100px;
             position: relative;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p{
-            margin-top: 10px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_tag{
-            /* border: 1px solid black; */
-            color: #555555;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_name{
-            /* border: 1px solid black; */
+        #main_contents>#contents_top>p:nth-child(1){ /*QnA*/
+            display: inline;
             font-size: 20px;
+            font-weight: bold;
+            border: 2px solid black;
+            padding: 8px 20px;
+            line-height: 24px;
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_review{
-            /* border: 1px solid black; */
+        #main_contents>#contents_top>p:nth-child(2){ /*질문을 상세하게 작성해주세요*/
+            position: absolute;
+            bottom: 5px;
+            left: 100px;
             color: darkred;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_price{
-            /* border: 1px solid black; */
-            font-size: 25px;
+    
+        #main_contents>form>#contents_bottom{
+            width: 100%;
+            /* height: 100px; */
+            border-top: 1px solid black;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>select.prod_cnt{
-            /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 4px 20px;
-            margin-top: 30px;
-            vertical-align: bottom;
-            position: absolute;
-            bottom: 0;
+        #main_contents>form>#contents_bottom>#bottom_context{
+            min-width: 1140px;
+            max-width: 1520px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px solid black;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>input.prod_cart_btn{
-            width: 350px;
+        #contents_bottom>#bottom_context>table{
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        tr.cs_table_row{
+            height: 40px;
+        }
+        tr.cs_table_row>td.cs_table_col{
+            border: 1px solid black;
+            text-align: center;
+            width: 100px;
+            font-size: 18px;
+        }
+        tr.cs_table_row>td.cs_table_col2{
+            border: 1px solid black;
+            padding-left: 20px;
+        }
+        td.cs_table_col2>input{
+            padding: 5px;
+            font-size: 16px;
+            border: 1px dashed #aaaaaa;
+        }
+        td.cs_table_col2>textarea{
+            margin-top: 3px;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px dashed #aaaaaa;
+        }
+
+        #main_contents>form>#btn_box{
+            min-width: 1140px;
+            max-width: 1520px;
             /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 3px 10px;
+            margin: 0 auto;
+            overflow: auto;
+            margin-top: 50px;
+        }
+        #main_contents>form>#btn_box>#btn_list{
+            float: left;
+            margin-left: -62px;
+            padding-left: 50%;
+            width: fit-content;
+            /* border: 1px solid black; */
+        }
+        #main_contents>form>#btn_box>#btn_list>p>a{
+            padding: 10px 50px;
             background-color: black;
             color: white;
-            position: absolute;
-            bottom: 0;
-            left: 80px;
+            float: left;
         }
-        #main_contents>#contents_bottom{
-            width: 1200px;
-            margin: 0 auto;
+        #main_contents>form>#btn_box>#btn_update{
             /* border: 1px solid black; */
-            border-top: 3px solid #888888;
+            float: right;
+            width: fit-content;
         }
-        #main_contents>#contents_bottom>#product_detail_info{
-            margin: 0 auto;
-            width: 950px;
+        #main_contents>form>#btn_box>#btn_update>p{
+            float: left;
+            margin: 0 10px;
+        }
+        #main_contents>form>#btn_box>#btn_update>p>a{
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            float: left;
+        }
+        #main_contents>form>#btn_box>#btn_write{
+            float: left;
+            margin-left: -196px;
+            padding-left: 50%;
+            width: fit-content;
             /* border: 1px solid black; */
-            margin-top: 30px;
-            margin-bottom: 30px;
-            overflow: visible;
         }
+        #main_contents>form>#btn_box>#btn_write>p{
+            float: left;
+            margin: 0 10px;
+        }
+        #main_contents>form>#btn_box>#btn_write>p>a{
+            padding: 10px 50px;
+            background-color: black;
+            color: white;
+            float: left;
+            font-size: 25px;
+        }
+        #main_contents>form>#btn_box>#btn_write>p>input{
+            padding: 10px 50px;
+            background-color: black;
+            color: white;
+            font-size: 25px;
+            border: none;
+        }
+        
         /* ///////////////////////////////////////////// */
         #footer {
             min-width: 100%;
@@ -408,70 +435,71 @@
                 </div>
             </div>
         </div>
+        </div>
         <div id = "main_contents">
             <div id="contents_top">
-                <div id = "contents_left">
-                    <div id = "product_image">
-                        <div id = "product_image_item">
-                            <a href=""><img src="http://placeimg.com/230/230/clothes" alt=""></a>
-                        </div>
-                        <div id = "product_image_select">
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                        </div>
+                <p>Q n A</p>
+                <p>*질문을 상세하게 작성해주세요</p>
+            </div>
+            <form action="">
+                <div id = "contents_bottom">
+                    <div id = "bottom_context">
+                        <table>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">이름</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">이메일</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">카테고리</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">제목</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">상담 내용</td>
+                                <td class="cs_table_col2">
+                                    <textarea cols="150" rows="20"></textarea>
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">답변</td>
+                                <td class="cs_table_col2">
+                                    <textarea cols="150" rows="10"></textarea>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                <div id = "contents_right">
-                    <div id = "product_contents">
-                        <form action="">
-                            <p class="prod_tag">품목</p>
-                            <p class="prod_name">상품명</p>
-                            <p class="prod_review">별점</p>
-                            <p class="prod_price">가격</p>
-                            <select name="prod_cnt" class="prod_cnt">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <input type="submit" value="ADD TO CART" class="prod_cart_btn">
-                        </form>
+                <div id ="btn_box">
+                    <div id = "btn_write">
+                        <p><input type="submit" value="저장하기"></p>
+                        <p><a href="#">취소하기</a></p>
                     </div>
                 </div>
-            </div>
-            <div id = "contents_bottom">
-                <div id = "product_detail_info">
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                </div>
-            </div>
+                <!-- <div id ="btn_box">
+                    <div id = "btn_list">
+                        <p><a href="#">목록</a></p>
+                    </div>
+                    <div id = "btn_update">
+                        <p><a href="#">수정</a></p>
+                        <p><a href="#">삭제</a></p>
+                    </div>
+                </div> -->
+            </form>
         </div>
     </div>
     <div id = "footer">

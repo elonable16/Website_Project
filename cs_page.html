@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Kufam:wght@600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src = "dropdown_menu.js"></script>
+    <script src = "banner_change.js"></script>
     <title>Document</title>
     <style>
         html{
@@ -17,6 +18,7 @@
         body{
             min-height: 100%;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -35,6 +37,7 @@
             top: 0;
             background-color: white;
             z-index: 9999;
+            letter-spacing: -1px;
         }
         #header >#header_deco{
             height: 30px;
@@ -115,9 +118,11 @@
             padding-bottom: 2px;
             border-bottom: 3px solid black;
         }
+        /**********************************contents*************************************/
         #contents{
             min-width: min-content;
             position: relative;
+            
         }
         #contents> #dropdown_menu {
             position: fixed;
@@ -125,7 +130,7 @@
             left: 0;
             height: 90px;
             min-width: 100%;
-            border-bottom:2px solid black ;
+            border-bottom:1px solid black ;
             background-color: white;
             z-index: 800;
             display: none;
@@ -180,118 +185,160 @@
             padding-left: 474px;
             display: none;
         }
-/* ///////////////////////////////////////////////////////// */
+        /*////////////////////////////////////////////////////////*/
         #main_contents{
             min-width: 1140px;
             max-width: 1520px;
-            padding-bottom: 200px;
+            /* height: 1800px; */
             margin: 0 auto;
-            overflow: visible;
             /* border: 1px solid black ; */
-            position: relative;
-        }
-        #main_contents>#contents_top{
-            overflow: hidden;
-        }
-        #main_contents >#contents_top> #contents_left{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            float: left;
-            /* border: 1px solid black; */
-        }
-        #main_contents >#contents_top> #contents_left>#product_image{
-            float: right;
-            /* border: 1px solid black; */
-        }
-        #contents_left>#product_image>#product_image_item{
-            /* border: 1px solid black; */
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-        }
-        #contents_left>#product_image>#product_image_item>a>img{
-            width: 300px;
-            height: 300px;
-        }
-        #contents_left>#product_image>#product_image_select{
-            /* border: 1px solid black; */
-            width: max-content;
-            height: 30px;
-            margin: 0 auto;
+            /* position: relative; */
             vertical-align: middle;
+            overflow: auto;
+            margin-bottom: 200px;
         }
-        #main_contents >#contents_top> #contents_right{
-            height :370px;
-            width: 45%;
-            padding: 20px;
-            margin: 20px 0;
+        #main_contents > #intro_contents_left{
+            width: 15%;
+            height: 100%; 
+            /* border: 1px solid black; */
+            float: left;
+            margin: 20px;
+        }
+        #intro_contents_left > #left_nav{
+            width: 100%;
+            /* height: 800px; */
+            /* border: 1px solid black; */
+        }
+        #intro_contents_left>#left_nav> ul {
             overflow: hidden;
-            float: right;
-            /* border: 1px solid black; */
         }
-        #main_contents>#contents_top> #contents_right>#product_contents{
-            /* border: 1px solid black; */
-            height: 330px;
-            margin: 0 auto;
+        #intro_contents_left>#left_nav>ul>li{
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px solid #888888;
+            padding-left: 20px;
+            vertical-align: text-bottom;
+            font-size: 13px;
+        }
+        #intro_contents_left>#left_nav>ul>li:first-child{
+            border-bottom: 2px solid #333333;
+            font-size: 16px;
+        }
+        #intro_contents_left>#left_nav>ul>li>a{
+            letter-spacing: 2px;
+            line-height:40px;
+        }
+        #main_contents > #intro_contents_right{
+            width:78%;
+            height: 100%;
+            float: right;
+            /* border: 1px solid black;  */
+            margin: 20px;
+            margin-left: 0px;
+        }
+        #main_contents > #intro_contents_right>#contents_top{
+            height: 40px;
+            /* border:1px solid black; */
             position: relative;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p{
-            margin-top: 10px;
+        #contents_top> #title{
+            margin-top:10px ;
+            margin-bottom:20px ;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_tag{
-            /* border: 1px solid black; */
-            color: #555555;
+        #contents_top> #title>p{
+            display: inline;
+            font-size: 16px;
+            font-weight: bold;
+            border: 2px solid black;
+            padding: 8px 20px;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_name{
-            /* border: 1px solid black; */
-            font-size: 20px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_review{
-            /* border: 1px solid black; */
-            color: darkred;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>p.prod_price{
-            /* border: 1px solid black; */
-            font-size: 25px;
-        }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>select.prod_cnt{
-            /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 4px 20px;
-            margin-top: 30px;
-            vertical-align: bottom;
+        #contents_top>#add_btn{
             position: absolute;
-            bottom: 0;
+            right: 5%;
+            bottom: 2px;
         }
-        #main_contents>#contents_top> #contents_right>#product_contents>form>input.prod_cart_btn{
-            width: 350px;
-            /* border: 1px solid black; */
-            font-size: 20px;
-            padding: 3px 10px;
+        #contents_top>#add_btn>p>a{
+            padding: 8px 15px;
             background-color: black;
             color: white;
-            position: absolute;
-            bottom: 0;
-            left: 80px;
+            font-size: 10px;
+            display: block;
         }
-        #main_contents>#contents_bottom{
-            width: 1200px;
-            margin: 0 auto;
+        #intro_contents_right>#cs_item_list_box{
+            width: 100%;
             /* border: 1px solid black; */
-            border-top: 3px solid #888888;
         }
-        #main_contents>#contents_bottom>#product_detail_info{
-            margin: 0 auto;
-            width: 950px;
-            /* border: 1px solid black; */
-            margin-top: 30px;
-            margin-bottom: 30px;
-            overflow: visible;
+        #intro_contents_right>#cs_item_list_box>#cs_list_table{
+            width: 95%;
+            margin-top: 20px;
         }
-        /* ///////////////////////////////////////////// */
+        #cs_list_table>table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        tr.table_header{
+            height: 40px;
+            text-align: center;
+        }
+        tr.table_header>td.table_header_item1{
+            border: 1px solid black;
+            width: 90px;
+        }
+        tr.table_header>td.table_header_item2{
+            border: 1px solid black;
+            width: 90px;
+        }
+        tr.table_header>td.table_header_item3{
+            border: 1px solid black;
+        }
+        tr.table_header>td.table_header_item4{
+            border: 1px solid black;
+            width: 90px;
+        }
+        tr.table_header>td.table_header_item5{
+            border: 1px solid black;
+            width: 150px;
+        }
+        tr.table_header>td.table_header_item6{
+            border: 1px solid black;
+            width: 90px;
+        }
+        tr.table_contents{
+            height: 40px;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 13px;
+        }
+        tr.table_contents>td.table_contents_item1{
+            width: 90px;
+        }
+        tr.table_contents>td.table_contents_item2{
+            width: 90px;
+        }
+        tr.table_contents>td.table_contents_item3{
+        }
+        tr.table_contents>td.table_contents_item4{
+            width: 90px;
+        }
+        tr.table_contents>td.table_contents_item5{
+            width: 150px;
+        }
+        tr.table_contents>td.table_contents_item6{
+            width: 90px;
+        }
+
+
+        #intro_contents_right>#cs_item_list_box>#pagenum{
+            text-align: right;
+            padding-right: 5%;
+            margin-top: 20px;
+        }
+        #intro_contents_right>#cs_item_list_box>#pagenum>span{
+            margin : 0px 5px;
+        }
+        
+
+        /**********************************footer*************************************/
         #footer {
             min-width: 100%;
             position: absolute;
@@ -409,69 +456,58 @@
             </div>
         </div>
         <div id = "main_contents">
-            <div id="contents_top">
-                <div id = "contents_left">
-                    <div id = "product_image">
-                        <div id = "product_image_item">
-                            <a href=""><img src="http://placeimg.com/230/230/clothes" alt=""></a>
-                        </div>
-                        <div id = "product_image_select">
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                            <span><a href="#">◦</a></span>
-                        </div>
+            <div id = "intro_contents_left">
+                <div id = "left_nav">
+                    <ul>
+                        <li><a>고객지원</a></li>
+                        <li><a>공지사항</a></li>
+                        <li><a>QnA</a></li>
+                        <li><a>게시판</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id = "intro_contents_right">
+                <div id ="contents_top">
+                    <div id="title">
+                        <p>공지사항</p>
+                    </div>
+                    <div id ="add_btn">
+                        <p><a href="#">작성</a></p>
                     </div>
                 </div>
-                <div id = "contents_right">
-                    <div id = "product_contents">
-                        <form action="">
-                            <p class="prod_tag">품목</p>
-                            <p class="prod_name">상품명</p>
-                            <p class="prod_review">별점</p>
-                            <p class="prod_price">가격</p>
-                            <select name="prod_cnt" class="prod_cnt">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <input type="submit" value="ADD TO CART" class="prod_cart_btn">
-                        </form>
+                <div id="cs_item_list_box">
+                    <div id= cs_list_table>
+                        <table>
+                            <tr class="table_header">
+                                <td class="table_header_item1">번호</td>
+                                <td class="table_header_item2">구분</td>
+                                <td class="table_header_item3">제목</td>
+                                <td class="table_header_item4">작성자</td>
+                                <td class="table_header_item5">게시일</td>
+                                <td class="table_header_item6">조회수</td>
+                            </tr>
+                            <tr class = "table_contents">
+                                <td class = "table_contents_item1">1</td>
+                                <td class = "table_contents_item2">기타</td>
+                                <td class = "table_contents_item3">공지합니다</td>
+                                <td class = "table_contents_item4">김엘론</td>
+                                <td class = "table_contents_item5">2019-01-01</td>
+                                <td class = "table_contents_item6">1234</td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                    <div id= pagenum>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                        <span>>></span>
                     </div>
                 </div>
             </div>
-            <div id = "contents_bottom">
-                <div id = "product_detail_info">
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                    <P>dfsf</P>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div id = "footer">
