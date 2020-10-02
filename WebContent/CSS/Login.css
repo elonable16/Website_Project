@@ -1,0 +1,311 @@
+html{
+            position: relative;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            min-height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Do Hyeon', sans-serif;
+            /* font-family: 'Kufam', cursive; */
+        }
+        li{list-style: none;}
+        a{text-decoration: none;
+        color: black;}
+        image{border: none;}
+        #header{
+            border-bottom: 1px solid black ;
+            min-width:min-content;
+            margin-bottom: -2px;
+            position: sticky;
+            left: 0;
+            top: 0;
+            background-color: white;
+            z-index: 9999;
+        }
+        #header >#header_deco{
+            height: 30px;
+            text-align: center;
+            color: white;
+            background-color: darkred;
+        }
+        #header_deco > p{
+            padding-top: 5px;
+        }
+        #main_header{
+            padding-top: 10px;
+            min-width: 1140px;
+            max-width: 1520px;
+            height: 100px;
+            margin: 0 auto;
+            /* border: 1px solid black ; */
+            position: relative;
+        }
+        #main_header > #header_title{
+            max-width: 1520px;
+            text-align: center;
+            font-size: 40px;
+        }
+        #header_title > p > a{
+            color : black;
+        }
+        #main_header > #go_home{
+            position:absolute;
+            top: 10px;
+            left: 10px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            /* border : 1px solid black; */
+            align-content: center;
+        }
+        #main_header > #person_nav{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        #person_nav > ul{
+            overflow: hidden;
+        }
+        #person_nav > ul > li{
+            float: left;
+        }
+        #person_nav > ul > li > a{
+            padding: 3px 10px ;
+            display: block;
+            /* border: 2px solid black; */
+            font-size: 15px;
+            text-align: center;
+        }
+        #main_header > #main_gnb{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -269px;
+        }
+        #main_gnb > ul{
+            overflow: hidden;
+        }
+        #main_gnb > ul > li{
+            float: left;
+        }
+        #main_gnb > ul > li > a{
+            color: black;
+            margin: 0 20px;
+            padding: 5px 5px;
+            display: block;
+            /* border: 2px solid black; */
+            text-align: center;
+            font-size: 15px;
+        }
+        #main_gnb > ul > li > a:hover{
+            padding-bottom: 2px;
+            border-bottom: 3px solid black;
+        }
+        #contents{
+            min-width: min-content;
+            position: relative;
+            
+        }
+        #contents> #dropdown_menu {
+            position: fixed;
+            top: 141px;
+            left: 0;
+            height: 90px;
+            min-width: 100%;
+            border-bottom:2px solid black ;
+            background-color: white;
+            z-index: 800;
+            display: none;
+        }
+        #dropdown_menu > div { /*menu_item1,2,3,4,*/
+            margin: 0 auto;
+            padding-top: 10px;
+            width: 557px;
+            height: 70px;
+            position: absolute;
+            top :0;
+            left: 50%;
+            margin-left: -578px;
+            z-index: -100;
+            padding-left: 300px;
+            padding-right: 300px;
+            background-color: white;
+        }
+        #dropdown_menu > div >div >p>a {
+            font-size: 13px;
+            color: black;
+        }
+        #menu_item1 > #intro_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 34px;
+            display: none;
+        }
+        #menu_item2 > #business_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 130px;
+            display: none;
+        }
+        #menu_item3 > #shop_items{
+            padding-top: 5px;
+            width: 250px;
+            float: left;
+            padding-left: 225px;
+            display: none;
+        }
+        #shop_items > p {
+            float: left;
+            margin-right: 20px;
+        }
+        #menu_item4 > #cs_items{
+            padding-top: 5px;
+            width: 100px;
+            float: left;
+            padding-left: 474px;
+            display: none;
+        }
+
+        #main_contents{
+            min-width: 1140px;
+            max-width: 1520px;
+            height: 750px;
+            margin: 0 auto;
+            /* border: 1px solid black ; */
+            position: relative;
+        }
+        #main_contents > #contents_left{
+            height :520px;
+            width: 552px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 2px solid #888888;
+            overflow: hidden;
+            float: left;
+            position: absolute;
+            left: 50%;
+            margin-left: -594px;
+        }
+        #contents_left > #Sign_in{
+            margin-left: 40px;
+        }
+        #Sign_in > p{
+            font-size: 25px;
+        }
+
+        #Sign_in > form > p {
+            width: 450px;
+        }
+        #Sign_in > form > p >input{
+            width: 430px;
+            height: 30px;
+            margin: 10px 0;
+            color: #888888;
+            padding-left: 20px;
+        }
+        #Sign_in > form > p > a{
+            float: right;
+            font-size: small;
+            margin-bottom: 10px;
+        }
+        #Sign_in > form > p:nth-last-child(1) > input{
+            background-color: black;
+            color: white;
+            width: 450px;
+            border:none;
+        }
+        #main_contents > #contents_right{
+            height :520px;
+            width: 552px;
+            padding: 20px;
+            margin: 20px 0;
+            margin-left: 20px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+        #contents_right > #Sign_up{
+            margin-left: 40px;
+        }
+        #Sign_up > p{
+            font-size: 25px;
+            width: 450px;
+        }
+        #Sign_up > form > p{
+            width: 450px;
+        }
+        #Sign_up > form > p >input{
+            width: 430px;
+            height: 30px;
+            margin: 10px 0;
+            color: #888888;
+            padding-left: 20px;
+        }
+        #Sign_up > form > p:nth-last-child(1) {
+            font-size: small;
+        }
+        #Sign_up > form > p:nth-last-child(2) > input{
+            background-color: black;
+            color: white;
+            width: 450px;
+            border:none;
+        }
+        #footer {
+            min-width: 100%;
+            position: absolute;
+            background-color: black;
+            left: 0;
+            bottom:0;
+            /* border: 1px solid black; */
+        }
+        #footer > #main_footer{
+            min-width: 1140px;
+            max-width: 1520px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            /* border: 1px solid black ; */
+            position: relative;
+        }
+        #main_footer > #sub_info{
+            width: 500px;
+            height: 100px;
+            margin-left: 20px;
+        }
+        #sub_info > #sub_link{
+            margin-top: 20px;
+        }
+        #sub_info > #sub_link > ul{
+            overflow: hidden;
+        }
+        #sub_link > ul > li{
+            float: left;
+        }
+        #sub_link > ul > li > a {
+            padding :0 20px ;
+            display: inline;
+            color: white;
+        }
+        #sub_link > ul > li:nth-child(2) > a{
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+        }
+        p.subinfo_text{
+            margin-left: 20px;
+        }
+        #main_footer > #footer_title{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 40px;
+        }

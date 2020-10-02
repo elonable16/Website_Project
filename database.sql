@@ -33,7 +33,7 @@ select * from master_seq;
 delete from master_seq WHERE seq_name='seq_costom';
 update master_seq set seq_name = 'seq_custom' where seq_name ='seq_costom';
 
-insert into customer values(get_seq('seq_custom'),'test2','test2@gmail.com','1234','010-0000-0000','2020-09-31','','test2','192.168.0.225');
+insert into customer values(get_seq('seq_custom'),'test2','test2@gmail.com','1234','010-0000-0000','customer2020-09-31','','test2','192.168.0.225');
 
 select * from customer;
 
@@ -105,6 +105,7 @@ foreign key(ad_id) references webadmin(ad_id)
 );
 insert into master_seq values(0,'seq_answer');
 
+
 create table product (
 p_code int not null primary key,
 p_class int not null,
@@ -118,6 +119,9 @@ p_image3 varchar(20),
 p_image4 varchar(20),
 p_datail varchar(3000) not null
 );
+alter table product add column p_sale char(1) default('N');
+ALTER TABLE `website`.`product` CHANGE COLUMN `p_sale` `p_sale` CHAR(1) NOT NULL DEFAULT _utf8mb4'N' ;
+
 insert into master_seq values(0,'seq_product');
 
 create table cart_main(
@@ -174,3 +178,17 @@ foreign key (id) references customer(id)
 );
 insert into master_seq values(0,'seq_deliInfo');
 commit;
+
+delete from product where p_code in(1,2,3,4);
+update master_seq set id = 0 where seq_name = 'seq_product'; 
+insert into product values(get_seq('seq_product'),100,'레귤러 슬랙스 블랙',10,4.5,50000,concat(p_class,p_code,'_1'),concat(p_class,p_code,'_2'),null,null,concat(p_class,p_code,'_detail'),'N');
+insert into product values(get_seq('seq_product'),200,'NIKE AIR PREMIUM BLACK',20,4,50000,concat(p_class,p_code,'_1'),null,null,null,concat(p_class,p_code,'_detail'),'N');
+insert into product values(get_seq('seq_product'),300,'남녀공용 라운드 반팔티 화이트',150,4,23000,concat(p_class,p_code,'_1'),null,null,null,concat(p_class,p_code,'_detail'),'N');
+insert into product values(get_seq('seq_product'),400,'단군 남성용코트 가을코트 베닌더블오버코트 빅사이즈 오버핏 남자코트',100,3.5,69000,concat(p_class,p_code,'_1'),null,null,null,concat(p_class,p_code,'_detail'),'Y');
+
+commit;
+select * from product order by p_grade desc;
+
+ALTER TABLE product CHANGE COLUMN `p_datail` `p_detail` VARCHAR(3000) NOT NULL ;
+
+select * from product where p_grade>=4.5 order by p_grade desc;
