@@ -77,9 +77,9 @@
             </div>
             <div id = menu_item4>
                 <div id = cs_items>
-                    <p><a href="#"> 공지사항 </a></p>
-                    <p><a href="#"> Q n A </a></p>
-                    <p><a href="#"> 게 시 판 </a></p>
+                    <p><a href="./NoticeServlet?cmd=notice_list&pagenum=1"> 공지사항 </a></p>
+                    <p><a href="./QnA/qna_list.jsp"> Q n A </a></p>
+                    <p><a href="./BoardServlet?cmd=board_list&pagenum=1"> 게 시 판 </a></p>
                 </div>
             </div>
         </div>

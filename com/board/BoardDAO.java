@@ -3,7 +3,7 @@ import java.sql.*;
 import java.util.*;
 import com.commons.MyDate;
 import com.commons.DBConn;
-
+import com.commons.PagingVO;
 public class BoardDAO {
 	private static BoardDAO instance = null;
 	private BoardDAO() {
@@ -22,27 +22,38 @@ public class BoardDAO {
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		try {
 			conn = DBConn.getConnection();
+			
 			sql = "select * from ";
 			sql += "(select * from ";
-			sql += "(select rownum as SEQ, b_num, b_subject, b_name,b_passwd, b_date,b_contents from ";
-			sql += "(select * from mvcboard b order by b_num desc)";
-			sql += " )where SEQ >= ? "; // 페이지 번호
-			sql += ")where rownum <=?"; // 페이지 단위
+			sql += "(select @rownum:=@rownum+1 as SEQ, gm_num, gm_subject, gm_name,gm_passwd, gm_datew, gm_dateu, gm_content, gm_cnt from ";
+			sql += "(select * from guestbook_main order by gm_num desc) as gm where (@rownum:=0)=0 ";
+			sql += ")as gm2 "; // 페이지 번호
+			sql += ")as gm3 limit ?, ?"; // 페이지 단위
+			
+			
+//			sql = "select * from ";
+//			sql += "(select * from ";
+//			sql += "(select rownum as SEQ, gm_num, gm_subject, gm_name,gm_passwd, gm_datew, gm_dateu, gm_contents from ";
+//			sql += "(select * from guestbook_main gm order by gm_num desc)";
+//			sql += " )where SEQ >= ? "; // 페이지 번호
+//			sql += ")where rownum <=?"; // 페이지 단위
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,(pagenum-1)*pagesize+1);
+			pstmt.setInt(1,(pagenum-1)*pagesize);
 			pstmt.setInt(2,pagesize);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO bVo = new BoardVO();
-				bVo.setB_num(rs.getInt("b_num"));
-				bVo.setB_subject(rs.getString("b_subject"));
-				bVo.setB_name(rs.getString("b_name"));
-				bVo.setB_passwd(rs.getString("b_passwd"));
-				bVo.setB_date(rs.getString("b_date"));
-				bVo.setB_contents(rs.getString("b_contents"));
+				bVo.setGm_num(rs.getInt("gm_num"));
+				bVo.setGm_subject(rs.getString("gm_subject"));
+				bVo.setGm_name(rs.getString("gm_name"));
+				bVo.setGm_passwd(rs.getString("gm_passwd"));
+				bVo.setGm_datew(rs.getString("gm_datew"));
+				bVo.setGm_dateu(rs.getString("gm_dateu"));
+				bVo.setGm_content(rs.getString("gm_content"));
+				bVo.setGm_cnt(rs.getInt("gm_cnt"));
 				list.add(bVo);
 			}
-			rs.close();
+			rs.close();	
 			pstmt.close();
 		}catch(Exception e) {
 			System.out.println(e.toString());
@@ -59,11 +70,7 @@ public class BoardDAO {
 			conn = DBConn.getConnection();
 			sql = "insert into mvcboard values(seq_mb_num.nextval,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bVo.getB_subject());
-			pstmt.setString(2, bVo.getB_name());
-			pstmt.setString(3, bVo.getB_passwd());
-			pstmt.setString(4, MyDate.getDate());
-			pstmt.setString(5, bVo.getB_contents());
+
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.commit();
@@ -79,26 +86,38 @@ public class BoardDAO {
 		}
 	}
 	
-	public BoardVO selectBoardItem(int b_num) {
+	public List<BoardVO> selectBoardItem(int gm_num) {
 		String sql = "";
 		Connection conn = null;
 		PreparedStatement  pstmt = null;
 		ResultSet rs = null;
 		BoardVO bVo = null;
+		List<BoardVO> list = new ArrayList<BoardVO>();
 		try {
+			
 			conn = DBConn.getConnection();
-			sql = "select * from mvcboard where b_num=?";
+			sql = "select * from guestbook_main gm,guestbook_sub gs where gm.gm_num=? and gm.gm_num=gs.gm_num order by gs.gs_num desc";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, b_num);
+			pstmt.setInt(1, gm_num);
 			rs = pstmt.executeQuery();
-			rs.next();
-			bVo = new BoardVO();
-			bVo.setB_num(rs.getInt("b_num"));
-			bVo.setB_subject(rs.getString("b_subject"));
-			bVo.setB_name(rs.getString("b_name"));
-			bVo.setB_passwd(rs.getString("b_passwd"));
-			bVo.setB_date(rs.getString("b_date"));
-			bVo.setB_contents(rs.getString("b_contents"));
+			while(rs.next()) {
+				bVo = new BoardVO();
+				bVo.setGm_num(rs.getInt("gm_num"));
+				bVo.setGm_subject(rs.getString("gm_subject"));
+				bVo.setGm_name(rs.getString("gm_name"));
+				bVo.setGm_passwd(rs.getString("gm_passwd"));
+				bVo.setGm_datew(rs.getString("gm_datew"));
+				bVo.setGm_dateu(rs.getString("gm_dateu"));
+				bVo.setGm_content(rs.getString("gm_content"));
+				bVo.setGm_cnt(rs.getInt("gm_cnt"));
+				bVo.setGs_num(rs.getInt("gs_num"));
+				bVo.setGs_name(rs.getString("gs_name"));
+				bVo.setGs_contents(rs.getString("gs_contents"));
+				bVo.setGs_datew(rs.getString("gs_datew"));
+				bVo.setGs_dateu(rs.getString("gs_dateu"));
+				bVo.setGs_ip(rs.getString("gs_ip"));
+				list.add(bVo);
+			}
 			rs.close();
 			pstmt.close();
 		}catch(Exception e) {
@@ -106,7 +125,7 @@ public class BoardDAO {
 		}finally {
 			DBConn.close(conn);
 		}
-		return bVo;
+		return list;
 	}
 	
 	public boolean checkBoard(String b_passwd,String b_num) {
@@ -143,10 +162,7 @@ public class BoardDAO {
 			conn = DBConn.getConnection();
 			sql = "update mvcboard set b_subject=?, b_name=?, b_contents=? where b_num =?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bVo.getB_subject());
-			pstmt.setString(2, bVo.getB_name());
-			pstmt.setString(3, bVo.getB_contents());
-			pstmt.setInt(4, bVo.getB_num());
+
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.commit();
@@ -195,7 +211,7 @@ public class BoardDAO {
 		int lastpage=1;
 		try {
 			conn = DBConn.getConnection();
-			sql = "select count(b_num) from mvcboard";
+			sql = "select count(gm_num) from guestbook_main";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			rs.next();
@@ -219,5 +235,4 @@ public class BoardDAO {
 		}
 		return pVo;
 	}
-	
 }

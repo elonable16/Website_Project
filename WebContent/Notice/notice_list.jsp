@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +88,7 @@
                 <div id = "left_nav">
                     <ul>
                         <li><a>고객지원</a></li>
-                        <li><a>공지사항</a></li>
+                        <li><a href="./NoticeServlet?cmd=notice_list&pagenum=1">공지사항</a></li>
                         <li><a>QnA</a></li>
                         <li><a>게시판</a></li>
                     </ul>
@@ -113,24 +114,30 @@
                                 <td class="table_header_item5">게시일</td>
                                 <td class="table_header_item6">조회수</td>
                             </tr>
+                            <c:forEach var="notice" items="${list}">
                             <tr class = "table_contents">
-                                <td class = "table_contents_item1">1</td>
-                                <td class = "table_contents_item2">기타</td>
-                                <td class = "table_contents_item3">공지합니다</td>
-                                <td class = "table_contents_item4">김엘론</td>
-                                <td class = "table_contents_item5">2019-01-01</td>
-                                <td class = "table_contents_item6">1234</td>
+                                <td class = "table_contents_item1">${notice.n_num}</td>
+                                <td class = "table_contents_item2">${notice.n_category}</td>
+                                <td class = "table_contents_item3"><a href="./NoticeServlet?cmd=notice_view&pagenum=${page.pagenum}&n_num=${notice.n_num}">${notice.n_subject}</a></td>
+                                <td class = "table_contents_item4">${notice.ad_name}</td>
+                                <td class = "table_contents_item5">${notice.n_datefirst}</td>
+                                <td class = "table_contents_item6">${notice.n_cnt}</td>
                             </tr>
-                            
+                            </c:forEach>
                         </table>
                     </div>
                     <div id= pagenum>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>>></span>
+                        <c:if test="${page.startpage>1}">
+							<span><a href="./NoticeServlet?cmd=notice_list&pagenum=${page.startpage- page.groupsize }">◀</a></span>
+						</c:if>
+						<c:forEach var="i" begin="${page.startpage}" end ="${page.endpage}">
+							<c:if test="${page.lastpage>=i}">
+								<span><a href="./NoticeServlet?cmd=notice_list&pagenum=${i}">${i}</a></span>
+							</c:if>
+						</c:forEach>
+						<c:if test="${page.endpage<page.lastpage}">
+							<a href="./NoticeServlet?cmd=notice_list&pagenum=${page.startpage+ page.groupsize }">▶</a>
+						</c:if>
                     </div>
                 </div>
             </div>

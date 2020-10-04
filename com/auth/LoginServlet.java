@@ -34,7 +34,6 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String cmd = request.getParameter("cmd");
-		System.out.println("login");
 		if(cmd.equals("loginform")) {
 			String url = "./Login/Login.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);

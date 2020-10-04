@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,15 +88,15 @@
             </div>
             <div id="contents_middle">
                 <div id = "middle_box">
-                    <p class="middle_subject">자유롭게 사용되는 게시판.</p>
-                    <p class="middle_cnt">조회수</p>
-                    <p class="middle_date">2021-01-01</p>
-                    <p class="middle_name">김엘론</p>
+                    <p class="middle_subject">${board[0].gm_subject}</p>
+                    <p class="middle_cnt">조회수 ${board[0].gm_cnt}</p>
+                    <p class="middle_date">${board[0].gm_datew}</p>
+                    <p class="middle_name">${board[0].gm_name}</p>
                 </div>
             </div>
             <div id = "contents_bottom">
                 <div id = "bottom_context">
-                    <p>회사소개의 여러 내용 내용</p>
+                    <p>${board[0].gm_content}</p>
                 </div>
                 <div id = "contents_sub_write">
                     <form method="POST" action="">
@@ -103,21 +104,25 @@
                         <input type="submit" value="글쓰기">
                     </form>
                 </div>
-                <div id = "contents_sub_read">
-                    <p>아이디</p>
-                    <div id = "contents_sub_context">
-                        <p>글은 여기로 들어온다.</p>
-                    </div>
-                    <p>2010-01-01</p>
-                    <div id = "contents_sub_btn">
-                        <a href="#">수정</a>
-                        <a href="#">삭제</a>
-                    </div>
-                </div>
+              	<c:forEach var="item" items="${board}">
+	                <div id = "contents_sub_read">
+	                    <p>${item.gs_name}</p>
+	                    <div id = "contents_sub_context">
+	                        <p>${item.gs_contents}</p>
+	                    </div>
+	                    <p>${item.gs_datew}</p>
+	                    <div id = "contents_sub_btn">
+	                    	<c:if test = "${item.gs_name eq sessionScope.id}">
+		                        <a href="#">수정</a>
+		                        <a href="#">삭제</a>
+	                        </c:if>
+	                    </div>
+	                </div>
+                </c:forEach>
             </div>
             <div id ="btn_box">
                 <div id = "btn_list">
-                    <p><a href="#">목록</a></p>
+                    <p><a href="./BoardServlet?cmd=board_list&pagenum=${param.pagenum}">목록</a></p>
                 </div>
                 <div id = "btn_update">
                     <p><a href="#">수정</a></p>

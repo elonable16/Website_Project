@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,7 +77,7 @@
             </div>
             <div id = menu_item4>
                 <div id = cs_items>
-                    <p><a href="#"> 공지사항 </a></p>
+                    <p><a href="./NoticeServlet?cmd=notice_list&pagenum=1"> 공지사항 </a></p>
                     <p><a href="#"> Q n A </a></p>
                     <p><a href="#"> 게 시 판 </a></p>
                 </div>
@@ -88,24 +90,23 @@
             </div>
             <div id="contents_middle">
                 <div id = "middle_box">
-                    <p class="middle_subject">공지사항입니다.</p>
-                    <p class="middle_date">2021-01-01</p>
+                    <p class="middle_subject">${notice.n_subject}</p>
+                    <p class="middle_date">${notice.n_datefirst}</p>
                 </div>
             </div>
             <div id = "contents_bottom">
                 <div id = "bottom_context">
-                    
-                    <p>회사소개의 여러 내용 내용</p>
+                    <p>${fn:replace(notice.n_contents,"\\n","<br>")}</p>
                 </div>
             </div>
             <div id ="btn_box">
                 <div id = "btn_list">
-                    <p><a href="#">목록</a></p>
+                    <p><a href="./NoticeServlet?cmd=notice_list&pagenum=${param.pagenum}">목록</a></p>
                 </div>
-                <div id = "btn_update">
+                <!-- <div id = "btn_update">
                     <p><a href="#">수정</a></p>
                     <p><a href="#">삭제</a></p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

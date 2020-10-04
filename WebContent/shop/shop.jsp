@@ -102,7 +102,7 @@
                     <p>SHOP</p>
                 </div>
                 <div id = "shop_main_item">
-                    <a href ="#"><img src="http://placeimg.com/1140/230/clothes" width="100%" alt=""></a>
+                    <a href ="#"><img src="./img/event3.jpg" width="100%" alt=""></a>
                 </div>
                 <div id="shop_item_list">
                     <div id = "shop_contents">
@@ -127,12 +127,17 @@
                   		</c:forEach>
                		</div>
                     <div id= shop_item_pagenum>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>>></span>
+	                    <c:if test="${page.startpage>1}">
+							<span><a href="./ShopServlet?cmd=shop_list&p_class=${list.p_class}&pagenum=${page.startpage- page.groupsize }">◀</a></span>
+						</c:if>
+						<c:forEach var="i" begin="${page.startpage}" end ="${page.endpage}">
+							<c:if test="${page.lastpage>=i}">
+								<span><a href="./ShopServlet?cmd=shop_list&p_class=${p_class}&pagenum=${i}">${i}</a></span>
+							</c:if>
+						</c:forEach>
+						<c:if test="${page.endpage<page.lastpage}">
+							<a href="./ShopServlet?cmd=shop_list&p_class=${list.p_class}&pagenum=${page.startpage+ page.groupsize }">▶</a>
+						</c:if>
                     </div>
                 </div>
             </div>

@@ -14,6 +14,8 @@ import javax.servlet.RequestDispatcher;
 import org.apache.commons.fileupload.*;
 import java.util.*;
 import java.io.File;
+
+import com.commons.PagingVO;
 import com.shop.productDAO;
 import com.shop.productVO;
 
@@ -50,7 +52,8 @@ public class HomeServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String url = "./main.jsp";
 		productDAO pDao = productDAO.getInstance();
-		List<productVO> list = pDao.selectAll();
+		PagingVO page= pDao.pagingAll(1, 12, 5);
+		List<productVO> list = pDao.selectAll(page.getPagenum(), page.getPagesize());
 		request.setAttribute("list", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

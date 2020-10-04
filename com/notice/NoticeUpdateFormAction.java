@@ -5,10 +5,12 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.commons.Action;
 import com.notice.NoticeDAO;
 import com.notice.NoticeVO;
 
-public class NoticeUpdateFormAction implements ActionNotice {
+public class NoticeUpdateFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -27,7 +27,6 @@ html{
             top: 0;
             background-color: white;
             z-index: 9999;
-            letter-spacing: -1px;
         }
         #header >#header_deco{
             height: 30px;

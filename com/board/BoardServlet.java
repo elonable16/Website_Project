@@ -30,7 +30,7 @@ public class BoardServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String cmd = request.getParameter("cmd");
-		ActionboardFactory af = ActionboardFactory.getInstance();//singleton 방식 객체생성
+		ActionBoardFactory2 af = ActionBoardFactory2.getInstance();//singleton 방식 객체생성
 		Action action = af.getAction(cmd);
 		if (action != null) {
 			action.execute(request, response);

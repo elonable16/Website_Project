@@ -102,14 +102,14 @@
                     <p>제목</p>
                 </div>
                 <div id = "shop_main_item">
-                    <a href ="#"><img src="http://placeimg.com/1140/230/clothes" width="100%" alt=""></a>
+                    <a href ="#"><img src="./img/event2.jpg" width="100%" alt=""></a>
                 </div>
                 <div id="shop_item_list">
                     <div id = "shop_contents">
                     	<c:forEach var = "item" items = "${list}">
 	                        <div id = "shop_contents_itemview">
 	                            <div id = "shop_item">
-	                                <a href="#">
+	                                <a href="./ShopServlet?cmd=product_view&p_code=${item.p_code}">
 	                                	<img src="./shop/img/${item.p_image1}.jpg" alt="">
 	                                	<div id="item_info">
 	                                        <p class ="product_name">${item.p_name}</p>
@@ -127,12 +127,19 @@
 	                  	</c:forEach>
                   	</div>
                     <div id= shop_item_pagenum>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>>></span>
+                        <div id= shop_item_pagenum>
+	                    <c:if test="${page.startpage>1}">
+							<span><a href="./ShopServlet?cmd=shop_salelist&&pagenum=${page.startpage- page.groupsize }">◀</a></span>
+						</c:if>
+						<c:forEach var="i" begin="${page.startpage}" end ="${page.endpage}">
+							<c:if test="${page.lastpage>=i}">
+								<span><a href="./ShopServlet?cmd=shop_salelist&pagenum=${i}">${i}</a></span>
+							</c:if>
+						</c:forEach>
+						<c:if test="${page.endpage<page.lastpage}">
+							<a href="./ShopServlet?cmd=shop_salelist&pagenum=${page.startpage+ page.groupsize }">▶</a>
+						</c:if>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.commons.Action;
+
 
 @WebServlet("/NoticeServlet")
 public class NoticeServlet extends HttpServlet {
@@ -24,8 +26,8 @@ public class NoticeServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String cmd = request.getParameter("cmd");
-		ActionFactoryNotice afn = ActionFactoryNotice.getInstance();
-		ActionNotice action = afn.getActionNotice(cmd);
+		ActionNoticeFactory afn = ActionNoticeFactory.getInstance();
+		Action action = afn.getAction(cmd);
 		if(action != null) {
 			action.execute(request, response);
 		}

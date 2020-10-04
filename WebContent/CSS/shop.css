@@ -304,6 +304,9 @@ html{
         #intro_contents_right>#shop_item_list>#shop_item_pagenum>span{
             margin : 0px 5px;
         }
+        #intro_contents_right>#shop_item_list>#shop_item_pagenum>span>a{
+            color:black;
+        }
         
 
         /**********************************footer*************************************/

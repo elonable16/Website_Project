@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,24 +114,31 @@
                                 <td class="table_header_item5">게시일</td>
                                 <td class="table_header_item6">조회수</td>
                             </tr>
-                            <tr class = "table_contents">
-                                <td class = "table_contents_item1">1</td>
-                                <td class = "table_contents_item2">기타</td>
-                                <td class = "table_contents_item3">공지합니다</td>
-                                <td class = "table_contents_item4">김엘론</td>
-                                <td class = "table_contents_item5">2019-01-01</td>
-                                <td class = "table_contents_item6">1234</td>
-                            </tr>
                             
+                            <c:forEach var="item" items="${list}">
+	                            <tr class = "table_contents">
+	                                <td class = "table_contents_item1">${item.gm_num}</td>
+	                                <td class = "table_contents_item2">일반</td>
+	                                <td class = "table_contents_item3"><a href="./BoardServlet?cmd=board_view&pagenum=${page.pagenum}&gm_num=${item.gm_num}">${item.gm_subject}</a></td>
+	                                <td class = "table_contents_item4">${item.gm_name}</td>
+	                                <td class = "table_contents_item5">${item.gm_datew}</td>
+	                                <td class = "table_contents_item6">${item.gm_cnt}</td>
+	                            </tr>
+                            </c:forEach>
                         </table>
                     </div>
                     <div id= pagenum>
-                        <span>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
-                        <span>5</span>
-                        <span>>></span>
+                        <c:if test="${page.startpage>1}">
+							<span><a href="./BoardServlet?cmd=board_list&pagenum=${page.startpage- page.groupsize }">◀</a></span>
+						</c:if>
+						<c:forEach var="i" begin="${page.startpage}" end ="${page.endpage}">
+							<c:if test="${page.lastpage>=i}">
+								<span><a href="./BoardServlet?cmd=board_list&pagenum=${i}">${i}</a></span>
+							</c:if>
+						</c:forEach>
+						<c:if test="${page.endpage<page.lastpage}">
+							<a href="./BoardServlet?cmd=board_list&pagenum=${page.startpage+ page.groupsize }">▶</a>
+						</c:if>
                     </div>
                 </div>
             </div>

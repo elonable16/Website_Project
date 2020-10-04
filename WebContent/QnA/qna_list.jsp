@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,7 +117,7 @@
                             <tr class = "table_contents">
                                 <td class = "table_contents_item1">1</td>
                                 <td class = "table_contents_item2">기타</td>
-                                <td class = "table_contents_item3">공지합니다</td>
+                                <td class = "table_contents_item3"><a href="./qna_view.jsp">공지합니다</a></td>
                                 <td class = "table_contents_item4">김엘론</td>
                                 <td class = "table_contents_item5">2019-01-01</td>
                                 <td class = "table_contents_item6">1234</td>

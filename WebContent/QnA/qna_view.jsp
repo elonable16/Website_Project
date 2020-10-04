@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,29 +84,68 @@
         </div>
         <div id = "main_contents">
             <div id="contents_top">
-                <p>공지사항</p>
+                <p>Q n A</p>
+                <p>*질문을 상세하게 작성해주세요</p>
             </div>
-            <div id="contents_middle">
-                <div id = "middle_box">
-                    <p class="middle_subject">공지사항입니다.</p>
-                    <p class="middle_date">2021-01-01</p>
+            <form action="">
+                <div id = "contents_bottom">
+                    <div id = "bottom_context">
+                        <table>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">이름</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">이메일</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">카테고리</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">제목</td>
+                                <td class="cs_table_col2">
+                                    <input type="text" name="">
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">상담 내용</td>
+                                <td class="cs_table_col2">
+                                    <textarea cols="150" rows="20"></textarea>
+                                </td>
+                            </tr>
+                            <tr class="cs_table_row">
+                                <td class="cs_table_col">답변</td>
+                                <td class="cs_table_col2">
+                                    <textarea cols="150" rows="10"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div id = "contents_bottom">
-                <div id = "bottom_context">
-                    
-                    <p>회사소개의 여러 내용 내용</p>
+                <div id ="btn_box">
+                    <div id = "btn_write">
+                        <p><input type="submit" value="저장하기"></p>
+                        <p><a href="#">취소하기</a></p>
+                    </div>
                 </div>
-            </div>
-            <div id ="btn_box">
-                <div id = "btn_list">
-                    <p><a href="#">목록</a></p>
-                </div>
-                <div id = "btn_update">
-                    <p><a href="#">수정</a></p>
-                    <p><a href="#">삭제</a></p>
-                </div>
-            </div>
+                <!-- <div id ="btn_box">
+                    <div id = "btn_list">
+                        <p><a href="#">목록</a></p>
+                    </div>
+                    <div id = "btn_update">
+                        <p><a href="#">수정</a></p>
+                        <p><a href="#">삭제</a></p>
+                    </div>
+                </div> -->
+            </form>
         </div>
     </div>
     <div id = "footer">
